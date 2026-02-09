@@ -125,3 +125,18 @@ Recommended:
 - Uses Event Loop + Thread Pool
 - Best for I/O intensive applications
 - Very important for interviews
+
+
+
+## NODE HTTP SERVER SETUP
+
+- Try to name your file server.js or index.js which will be your main server file where your server will run
+- node has a built in module http
+- import that package
+
+```js
+ const myServer=http.createServer((req,res)=>{});
+ ```
+
+createServer takes a callback which will process the incoming request 
+call back has two argument req,res
