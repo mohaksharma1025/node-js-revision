@@ -130,13 +130,91 @@ Recommended:
 
 ## NODE HTTP SERVER SETUP
 
-- Try to name your file server.js or index.js which will be your main server file where your server will run
-- node has a built in module http
-- import that package
+- Name your main server file as `server.js` or `index.js`
+- This file is the entry point where the Node.js server runs
+- Node.js provides a built-in `http` module
+- Import the `http` module to create a server
 
 ```js
- const myServer=http.createServer((req,res)=>{});
- ```
+const http = require("http");
 
-createServer takes a callback which will process the incoming request 
-call back has two argument req,res
+const myServer = http.createServer((req, res) => {
+  // handle incoming request
+});
+```
+
+### createServer Explanation
+- `createServer()` takes a callback function
+- This callback runs on **every incoming request**
+- It receives two arguments:
+  - `req` → request object
+  - `res` → response object
+
+---
+
+## HANDLING URL
+
+**URL** stands for **Uniform Resource Locator**
+
+A URL consists of multiple parts:
+
+---
+
+### 1. Protocol
+The protocol defines **how data is transferred**.
+
+- **HTTP** → HyperText Transfer Protocol
+- **HTTPS** → HyperText Transfer Protocol Secure
+
+**HTTP vs HTTPS**
+- HTTPS is more secure
+- HTTPS uses an **SSL certificate**
+- HTTP does not use encryption
+
+---
+
+### 2. Domain Name
+Example:
+```
+www.google.com
+```
+
+- Every domain is mapped to an **IP address**
+- IP addresses are difficult to remember
+- Domain names make websites easy to access for users
+
+---
+
+### 3. Path
+Examples:
+```
+/        → root path
+/about  → about page
+```
+
+- `/` represents the root path
+- Paths help the server decide which response to send
+
+---
+
+### Example URL
+```
+https://www.google.com/
+```
+
+- `https` → protocol
+- `www.google.com` → domain
+- `/` → root path
+  
+
+
+
+  ### QUERY PARAMETER
+**Query Parameters** are key–value pairs sent in the URL after `?` to pass additional data to the server.
+ EXAMPLE: ``` https://www.profile.com/search?name=rahul&age=21```
+
+
+ -HTTP MODULE DONT PARSE REQ.URL PROPERLY FOR PARAMS WE NEED EXTERNAL PACKAGE
+
+ PACKAGE NAME IS URL
+ npm install url
