@@ -325,3 +325,12 @@ Makes the project professional
 Easy to understand changes
 
 Industry-standard practice
+
+
+### REST API
+
+Rules for Restful API
+1. Server client Architecture - Both server and client are diferent entities and should not depend on each other.
+Server send json data ,frontend can decide what it can do it with data.
+
+2. Always respect all http methods
