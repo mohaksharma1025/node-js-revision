@@ -20,4 +20,10 @@
  /New Request Recieved 
  /about?myName=MOHAKNew Request Recieved 
  /favicon.icoNew Request Recieved 
+ /favicon.icoNew Request Recieved 
+ /about?myName=MOHAKNew Request Recieved 
+ /favicon.icoNew Request Recieved 
+ /about?myName=MOHAKNew Request Recieved 
+ /favicon.icoNew Request Recieved 
+ /about?myName=MOHAKNew Request Recieved 
  /favicon.ico
