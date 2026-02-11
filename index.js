@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express=require('express');
 let users =require('./MOCK_DATA.json')
 const app=express();
