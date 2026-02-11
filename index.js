@@ -1,23 +1,55 @@
 const express=require('express');
 let users =require('./MOCK_DATA.json')
 const app=express();
-const fs=require('fs')
+const fs=require('fs');
+const connectDB=require('./db.js');
+const User=require('./schema.js');
+connectDB();
 
 app.use(express.json())
 app.use(express.urlencoded({extented:true}));
 const PORT=8000
 
-//ROUTES
-app.get('/users',(req,res)=>{
+
+//POST ROUTE FOR MONGODB
+app.post('/db/users',async(req,res)=>{
+    const {firstname,lastname,email,job_title,gender}=req.body;
+   try{ const pushData=await
+        User.create({firstname,lastname,email,job_title,gender})
+        
+    
+    res.json({message:"DATA PUSHED",
+        data:pushData
+    })
+    
+}
+    
+    catch(err){
+        console.log("YOU HAVE AN ERROR",err)
+        res.json({message:"TASK FAILED"})
+    }
+})
+
+//GET USER FROM DATABASES
+
+app.get('/db/users',async(req,res)=>{
+    const data=await User.find();
     const html=`
     <ul>
-    ${users.map(user=>`
-        <li>${user.first_name}</li>`
+    ${data.map(user=>`
+        <li>${user.firstname}</li>`
     ).join("")}
     </ul>
 
 
     `
+    res.send(html)
+    console.log(data)
+})
+
+//ROUTES
+app.get('/users',(req,res)=>{
+    
     res.send(html);
 })
 
